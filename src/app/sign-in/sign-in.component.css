@@ -1,0 +1,12 @@
+.alert-danger{
+    color: #721c24;
+    background: #f8d7da;
+    border-color: #f5c6cb;
+    margin-bottom: 5px;
+  }
+  .alert-warning{
+    color: #6c721c;
+    background: #f8f8d7;
+    border-color: #f8f8d7;
+    margin-bottom: 5px;
+  }

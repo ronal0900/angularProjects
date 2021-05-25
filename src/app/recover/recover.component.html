@@ -4,14 +4,22 @@
             <h4>Recover</h4>
         </div>
         <div class="col-lg-3 text-dark bg-transparent" style="height: 530px">
-            <form>
+            <form (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <div class="form-floating mt-4 mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Recover">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="Recover" [formControl]="emailAddress">
                         <label for="floatingInput">E-mail Address</label>
+                        <div *ngIf="emailAddress?.invalid && emailAddress?.touched" class="alert alert-warning">
+                            <div *ngIf="emailAddress?.errors?.required">
+                                email address is required!
+                            </div>
+                            <div *ngIf="emailAddress?.errors?.pattern">
+                                example: name129@gmail.com
+                            </div>
+                        </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-lg btn-primary" type="button">Recover</button>
+                        <button class="btn btn-lg btn-primary" type="submit" [disabled]="!emailAddress.valid">Recover</button>
                     </div>
                 </div>
             </form>

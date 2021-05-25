@@ -4,18 +4,28 @@
             <h4>Sign In</h4>
         </div>
         <div class="col-lg-3 text-dark bg-transparent" style="height: 530px">
-            <form>
+            <form action="#" [formGroup]="formSign" (ngSubmit)="onSubmit()">
                 <div class="form-group">
                     <div class="form-floating mt-4 mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="UserName">
+                        <input type="text" class="form-control" id="floatingInput" placeholder="UserName" formControlName="username">
                         <label for="floatingInput">Username</label>
+                        <div *ngIf="username?.invalid && username?.touched" class="alert alert-danger">
+                            <div *ngIf="username?.errors?.required">
+                                Username is required!
+                            </div>
+                        </div>
                     </div>
                     <div class="form-floating mb-3">
-                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
                         <label for="floatingPassword">Password</label>
+                        <div *ngIf="password?.invalid && password?.touched" class="alert alert-danger">
+                            <div *ngIf="password?.errors?.required">
+                                Password is required!
+                            </div>
+                        </div>
                     </div>
                     <div class="d-grid gap-2">
-                        <button class="btn btn-lg btn-primary" type="button">Login</button>
+                        <button class="btn btn-lg btn-primary" type="submit" [disabled]="!formSign.valid">Login</button>
                     </div>
                 </div>
             </form>
