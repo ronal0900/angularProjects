@@ -1,7 +1,13 @@
+<div *ngIf="!load" class="container d-flex justify-content-center" style="height: 720px;">
+    <div class="spinner-border text-light" style="width: 8rem; height: 8rem; margin-top: 20rem;" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<div *ngIf="load">
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark header-bg-color">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center">Login Forms</a>
+            <a class="navbar-brand d-flex align-items-center nav-link" a routerLink="/login" routerLinkActive="active">Login Forms</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -25,3 +31,4 @@
     </nav>
 </header>
 <router-outlet></router-outlet>
+</div>

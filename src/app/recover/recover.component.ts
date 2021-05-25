@@ -10,7 +10,7 @@ export class RecoverComponent implements OnInit {
 
   constructor() { }
 
-  emailAddress = new FormControl('', [Validators.required, Validators.pattern(/@?[hotmail|gmail|hotmail|outlook|yahoo].com?/)]);
+  emailAddress = new FormControl('', [Validators.required, Validators.pattern(/@.com/)]);
 
   ngOnInit(): void {
   }
